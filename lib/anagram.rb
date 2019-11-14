@@ -11,7 +11,10 @@ class Anagram
     sorted_word = @word.chars.sort.join
     sorted_list = poss_anagrams.map {|word| word.chars.sort.join}
     results = []
-    sorted_list.
+    sorted_list.each_with_index do |sorted, index|
+      results << poss_anagrams[index] if sorted_word == sorted
+    end
+    results
   end
 
 end
